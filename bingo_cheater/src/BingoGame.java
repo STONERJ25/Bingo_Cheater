@@ -61,8 +61,7 @@ public class BingoGame {
 }
 
     public boolean checkWin(char wincon) {
-        // Check rows, columns, and diagonals for a win
-     //   "Input game type: Regular-R, Postage-P, X, T, Corners-C, Blackout-B: "
+ 
      switch (wincon) {
         case 'R':
             return checkBingo();
@@ -124,39 +123,38 @@ public boolean checkBingo() {
 private boolean checkRows() {
     for (int i = 0; i < 5; i++) {
         if (checkRow(i)) {
-            return true; // Bingo found in row
+            return true;
         }
     }
-    return false; // No Bingo in rows
+    return false; 
 }
 
 private boolean checkRow(int row) {
     for (int j = 0; j < 5; j++) {
         if (checkboard[row][j] != 'c') {
-            return false; // Not all marked in this row
+            return false; 
         }
     }
-    return true; // All marked in this row
+    return true;
 }
 
 private boolean checkColumns() {
     for (int j = 0; j < 5; j++) {
         if (checkColumn(j)) {
-            return true; // Bingo found in column
+            return true;
         }
     }
-    return false; // No Bingo in columns
+    return false;
 }
 
 private boolean checkColumn(int column) {
     for (int i = 0; i < 5; i++) {
         if (checkboard[i][column] != 'c') {
-            return false; // Not all marked in this column
+            return false;
         }
     }
-    return true; // All marked in this column
+    return true; 
 }
-
 private boolean checkDiagonals() {
     return checkLeftToRightDiagonal() || checkRightToLeftDiagonal();
 }
@@ -164,18 +162,18 @@ private boolean checkDiagonals() {
 private boolean checkLeftToRightDiagonal() {
     for (int i = 0; i < 5; i++) {
         if (checkboard[i][i] != 'c') {
-            return false; // Not all marked in left-to-right diagonal
+            return false; 
         }
     }
-    return true; // All marked in left-to-right diagonal
+    return true; 
 }
 
 private boolean checkRightToLeftDiagonal() {
     for (int i = 0; i < 5; i++) {
         if (checkboard[i][4 - i] != 'c') {
-            return false; // Not all marked in right-to-left diagonal
+            return false;
         }
     }
-    return true; // All marked in right-to-left diagonal
+    return true; 
 }
 }

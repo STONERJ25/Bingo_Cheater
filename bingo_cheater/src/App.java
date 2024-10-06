@@ -9,7 +9,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Number of Boards");
         
-        int size =  Integer.parseInt(scanner.nextLine()); // Define the size
+        int size =  Integer.parseInt(scanner.nextLine());
         BingoGame[] board = new BingoGame[size];
         for (int i = 0; i < size; i++) {
             board[i] = new BingoGame();
@@ -27,13 +27,12 @@ public class App {
                         bingo = true;
                     }
                 }
-                // Add your game logic here to set 'bingo' to true when applicable.
             }
 
             System.out.print("New Game? Y/N: ");
             bingo = false;
             nextround = scanner.next();
-            scanner.nextLine();  // Clear the buffer
+            scanner.nextLine();  
         }
 
         scanner.close();
