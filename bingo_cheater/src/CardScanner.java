@@ -13,7 +13,7 @@ public class CardScanner {
     Tesseract tesseract = new Tesseract();
     try {
 
-      tesseract.setDatapath("D:/Tess4J/tessdata");
+      tesseract.setDatapath("Tess4J-3.4.8-src");
 
       // the path of your tess data folder
       // inside the extracted file
