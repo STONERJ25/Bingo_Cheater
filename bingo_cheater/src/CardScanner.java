@@ -4,12 +4,9 @@ import java.io.File;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
-// image processing
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.videoio.VideoCapture;
-import org.opencv.imgproc.Imgproc;;
+import org.opencv.core.Rect;
 
 public class CardScanner {
   public static void main(String[] args) {
@@ -25,7 +22,19 @@ public class CardScanner {
       // path of your image file
       System.out.print(text);
     } catch (TesseractException e) {
-      e.printStackTrace();
+
+      Mat capturedIMage = WebcamCapture.captureImage(640);
+
+      String[][] extractedText = TextExtractor.extractText(capturedIMage);
+
+      System.out.println("Extracted Text:");
+      for (String[] row : extractedText) {
+        for (String text : row) {
+          System.out.print((text != null ? text : "[null]") + "\t");
+        }
+        System.out.println();
+      }
+
     }
   }
 }
